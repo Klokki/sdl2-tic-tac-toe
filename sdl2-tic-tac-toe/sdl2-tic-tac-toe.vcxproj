@@ -132,10 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\SDL2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\App.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
