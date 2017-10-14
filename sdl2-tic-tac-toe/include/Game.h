@@ -13,4 +13,5 @@ public:
 
 private:
 	Board board;
+	bool is_cross;
 };
