@@ -67,6 +67,19 @@ void App::run()
 		{
 			if (e.type == SDL_QUIT)
 				running = false;
+
+			// Q quits the game
+			if (e.type == SDL_KEYDOWN)
+			{
+				switch (e.key.keysym.sym)
+				{
+				case(SDLK_q):
+					running = false;
+					break;
+				default:
+					break;
+				}
+			}
 		}
 
 		game.update(&e);
