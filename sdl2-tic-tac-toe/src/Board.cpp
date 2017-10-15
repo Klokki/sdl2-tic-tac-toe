@@ -34,11 +34,6 @@ void Board::place_piece(int row, int col, PIECE piece)
 	}
 }
 
-bool Board::square_empty(int row, int col)
-{
-	return p[row][col] == PIECE::PIECE_CLEAR;
-}
-
 void Board::render_grid() const
 {
 	// blue

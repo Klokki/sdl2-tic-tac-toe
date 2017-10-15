@@ -16,7 +16,7 @@ public:
 	void render();
 	void place_piece(int row, int col, PIECE piece);
 	
-	bool square_empty(int row, int col);
+	inline bool square_empty(int row, int col) const { return p[row][col] == PIECE::PIECE_CLEAR; }
 
 private:
 	PIECE p[3][3];
