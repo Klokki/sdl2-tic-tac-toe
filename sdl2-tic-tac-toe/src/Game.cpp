@@ -3,7 +3,6 @@
 
 Game::Game()
 {
-	is_cross = true;
 }
 
 Game::~Game()

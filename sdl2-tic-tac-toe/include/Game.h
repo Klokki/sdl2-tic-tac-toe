@@ -13,5 +13,5 @@ public:
 
 private:
 	Board board;
-	bool is_cross;
+	bool is_cross{ true };
 };
