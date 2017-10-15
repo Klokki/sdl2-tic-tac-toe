@@ -24,9 +24,9 @@ private:
 	int square_width;
 	int square_height;
 
-	void render_grid();
-	void render_pieces();
-	void draw_cross(int row, int col);
-	void draw_circle(int row, int col);
+	void render_grid() const;
+	void render_pieces() const;
+	void draw_cross(int row, int col) const;
+	void draw_circle(int row, int col) const;
 };
 

@@ -12,8 +12,8 @@ public:
 	~App();
 
 	// getters
-	static SDL_Window *get_window()		{ return s_window; }
-	static SDL_Renderer *get_renderer() { return s_renderer; }
+	static inline SDL_Window *get_window()		{ return s_window; }
+	static inline SDL_Renderer *get_renderer()	{ return s_renderer; }
 
 private:
 	bool init_SDL();

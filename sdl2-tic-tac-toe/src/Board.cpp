@@ -39,7 +39,7 @@ bool Board::square_empty(int row, int col)
 	return p[row][col] == PIECE::PIECE_CLEAR;
 }
 
-void Board::render_grid()
+void Board::render_grid() const
 {
 	// blue
 	SDL_SetRenderDrawColor(App::get_renderer(), 0x00, 0x00, 0xFF, 0xFF);
@@ -52,7 +52,7 @@ void Board::render_grid()
 	SDL_RenderDrawLine(App::get_renderer(), square_width * 2, 0, square_width * 2, App::SCREEN_HEIGHT);
 }
 
-void Board::render_pieces()
+void Board::render_pieces() const
 {
 	// red
 	SDL_SetRenderDrawColor(App::get_renderer(), 0xFF, 0x00, 0x00, 0xFF);
@@ -75,13 +75,27 @@ void Board::render_pieces()
 	}
 }
 
-void Board::draw_cross(int row, int col)
+void Board::draw_cross(int row, int col) const
 {
 	SDL_RenderDrawLine(App::get_renderer(), col * square_width, row * square_height, col * square_width + square_width, row * square_height + square_height);
 	SDL_RenderDrawLine(App::get_renderer(), col * square_width, row * square_height + square_height, col * square_width + square_width, row * square_height);
 }
 
-void Board::draw_circle(int row, int col)
+void Board::draw_circle(int row, int col) const
 {
-	
+	const int center_x{ col * square_width + (square_width / 2) },
+		center_y{ row * square_height + (square_height / 2) },
+		radius{ square_width / 2 };
+
+	int end_x{ center_x + radius },
+		end_y{ center_y };
+
+	for (double angle{ 0 }; angle < 2 * M_PI; angle += 2 * M_PI / 60)
+	{
+		const int start_x{ end_x }, start_y{ end_y };
+		end_x = radius * cos(angle) + center_x;
+		end_y = radius * sin(angle) + center_y;
+
+		SDL_RenderDrawLine(App::get_renderer(), start_x, start_y, end_x, end_y);
+	}
 }
