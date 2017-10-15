@@ -19,6 +19,9 @@ private:
 	bool init_SDL();
 	// contains main game loop
 	void run();
+	void handle_quit();
+
+	bool running;
 
 	static SDL_Window *s_window;
 	static SDL_Renderer *s_renderer;

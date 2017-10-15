@@ -8,7 +8,10 @@ SDL_Renderer* App::s_renderer{ nullptr };
 App::App()
 {
 	if (init_SDL())
+	{
+		running = true;
 		this->run();
+	}
 	else
 		SDL_Quit();
 }
@@ -57,32 +60,35 @@ bool App::init_SDL()
 
 void App::run()
 {
-	bool running{ true };
 	Game game;
 
 	// game loop
 	while (running)
 	{
-		while (SDL_PollEvent(&e))
-		{
-			if (e.type == SDL_QUIT)
-				running = false;
-
-			// Q quits the game
-			if (e.type == SDL_KEYDOWN)
-			{
-				switch (e.key.keysym.sym)
-				{
-				case(SDLK_q):
-					running = false;
-					break;
-				default:
-					break;
-				}
-			}
-		}
-
+		this->handle_quit();
 		game.update(&e);
 		game.render();
+	}
+}
+
+void App::handle_quit()
+{
+	while (SDL_PollEvent(&e))
+	{
+		if (e.type == SDL_QUIT)
+			running = false;
+
+		// Q quits the game
+		if (e.type == SDL_KEYDOWN)
+		{
+			switch (e.key.keysym.sym)
+			{
+			case(SDLK_q):
+				running = false;
+				break;
+			default:
+				break;
+			}
+		}
 	}
 }
