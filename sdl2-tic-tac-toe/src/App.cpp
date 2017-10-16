@@ -12,8 +12,6 @@ App::App()
 		running = true;
 		this->run();
 	}
-	else
-		SDL_Quit();
 }
 
 App::~App()
