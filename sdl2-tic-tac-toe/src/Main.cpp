@@ -2,6 +2,6 @@
 
 int main(int argc, char *args[])
 {
-	App a;
+	App tic_tac_toe;
 	return 0;
 }

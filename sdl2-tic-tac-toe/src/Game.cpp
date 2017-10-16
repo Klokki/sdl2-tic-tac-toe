@@ -15,8 +15,7 @@ void Game::update(SDL_Event *e)
 	{
 		int x, y;
 		SDL_GetMouseState(&x, &y);
-		int row{ y / (App::SCREEN_HEIGHT / 3) };
-		int col{ x / (App::SCREEN_WIDTH / 3) };
+		const int row{ y / (App::SCREEN_HEIGHT / 3) }, col{ x / (App::SCREEN_WIDTH / 3) };
 
 		if (board.square_empty(row, col))
 		{
