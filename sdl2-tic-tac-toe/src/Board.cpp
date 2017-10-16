@@ -1,6 +1,7 @@
+#include <cmath>
+#include "SDL.h"
 #include "Board.h"
 #include "App.h"
-#include "SDL.h"
 
 Board::Board() :
 	square_height(App::SCREEN_HEIGHT / 3),
