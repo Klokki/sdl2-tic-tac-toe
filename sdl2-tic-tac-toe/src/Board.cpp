@@ -38,7 +38,7 @@ void Board::place_piece(int row, int col, PIECE piece)
 void Board::render_grid() const
 {
 	// blue
-	SDL_SetRenderDrawColor(App::get_renderer(), 0x00, 0x00, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(App::get_renderer(), 0, 0, 255, 255);
 
 	// horizontal lines
 	SDL_RenderDrawLine(App::get_renderer(), 0, square_height, App::SCREEN_WIDTH, square_height);
@@ -51,7 +51,7 @@ void Board::render_grid() const
 void Board::render_pieces() const
 {
 	// red
-	SDL_SetRenderDrawColor(App::get_renderer(), 0xFF, 0x00, 0x00, 0xFF);
+	SDL_SetRenderDrawColor(App::get_renderer(), 255, 0, 0, 255);
 	for (int i{ 0 }; i < 3; ++i)
 	{
 		for (int j{ 0 }; j < 3; ++j)
