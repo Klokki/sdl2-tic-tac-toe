@@ -11,7 +11,7 @@ Game::~Game()
 
 void Game::update(SDL_Event *e)
 {
-	if (e->type == SDL_MOUSEBUTTONDOWN)
+	if (e->type == SDL_MOUSEBUTTONDOWN && board.is_playable())
 	{
 		int x, y;
 		SDL_GetMouseState(&x, &y);
@@ -27,8 +27,6 @@ void Game::update(SDL_Event *e)
 			is_cross = !is_cross;
 		}
 	}
-
-	board.check_win();
 }
 
 void Game::render()
