@@ -16,6 +16,9 @@ private:
 	Board board;
 	SDL_Rect message_rect;
 	TEXTURE texture;
+
+	// whether the cross (X) is playing or not
 	bool is_cross{ true };
+	// whether text should be drawn or not
 	bool render_text{ false };
 };
