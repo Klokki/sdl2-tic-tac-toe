@@ -135,16 +135,54 @@ void App::close_TTF()
 		font = nullptr;
 	}
 
+	// TODO: seriously fix this
+	// this is legit disgusting
+	if (blank_surface != nullptr)
+	{
+		SDL_FreeSurface(blank_surface);
+		draw_surface = nullptr;
+	}
+
 	if (draw_surface != nullptr)
 	{
 		SDL_FreeSurface(draw_surface);
 		draw_surface = nullptr;
 	}
 
+	if (cross_surface != nullptr)
+	{
+		SDL_FreeSurface(cross_surface);
+		cross_surface = nullptr;
+	}
+
+	if (circle_surface != nullptr)
+	{
+		SDL_FreeSurface(circle_surface);
+		circle_surface = nullptr;
+	}
+
+	if (s_blank != nullptr)
+	{
+		SDL_DestroyTexture(s_blank);
+		s_blank = nullptr;
+	}
+
 	if (s_draw != nullptr)
 	{
 		SDL_DestroyTexture(s_draw);
 		s_draw = nullptr;
+	}
+
+	if (s_cross != nullptr)
+	{
+		SDL_DestroyTexture(s_cross);
+		s_cross = nullptr;
+	}
+
+	if (s_circle != nullptr)
+	{
+		SDL_DestroyTexture(s_circle);
+		s_circle = nullptr;
 	}
 }
 
