@@ -6,7 +6,7 @@
 Board::Board() :
 	square_height(App::SCREEN_HEIGHT / 3),
 	square_width(App::SCREEN_WIDTH / 3),
-	filled_places(0)
+	filled_squares(0)
 {
 	// set all grid squares to empty
 	for (int i{ 0 }; i < 3; ++i)
@@ -28,9 +28,9 @@ void Board::render()
 
 void Board::place_piece(int row, int col, PIECE piece)
 {
-	if (filled_places < 9)
+	if (filled_squares < 9)
 	{
-		++filled_places;
+		++filled_squares;
 		p[row][col] = piece;
 	}
 }

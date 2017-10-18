@@ -20,7 +20,7 @@ public:
 
 private:
 	PIECE p[3][3];
-	int filled_places;
+	int filled_squares;
 	int square_width;
 	int square_height;
 
