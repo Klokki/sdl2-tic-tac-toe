@@ -50,5 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="font\OpenSans.ttf" />
+    <Font Include="font\PT_Serif-Web-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="font\OFL.txt" />
   </ItemGroup>
 </Project>

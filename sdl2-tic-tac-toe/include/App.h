@@ -17,7 +17,6 @@ public:
 	static inline SDL_Window *get_window()		{ return s_window; }
 	static inline SDL_Renderer *get_renderer()	{ return s_renderer; }
 	static SDL_Texture *get_texture(TEXTURE texture);
-	static inline SDL_Rect get_rect()			{ return s_message_rect; }
 
 private:
 	bool init_SDL();
@@ -46,7 +45,6 @@ private:
 	static SDL_Texture* s_draw;
 	static SDL_Texture* s_cross;
 	static SDL_Texture* s_circle;
-	static SDL_Rect s_message_rect;
 
 	SDL_Event e;
 };

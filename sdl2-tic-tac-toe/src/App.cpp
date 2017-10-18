@@ -8,7 +8,6 @@ SDL_Texture* App::s_blank{ nullptr };
 SDL_Texture* App::s_draw{ nullptr };
 SDL_Texture* App::s_cross{ nullptr };
 SDL_Texture* App::s_circle{ nullptr };
-SDL_Rect App::s_message_rect{ NULL };
 
 App::App()
 {
@@ -109,11 +108,6 @@ bool App::init_TTF()
 		std::cerr << "SDL_CreateTextureFromSurface error: " << SDL_GetError() << std::endl;
 		return false;
 	}
-
-	s_message_rect.x = 50;
-	s_message_rect.y = 100;
-	s_message_rect.h = 100;
-	s_message_rect.w = 500;
 
 	return true;
 }

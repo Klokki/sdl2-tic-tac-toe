@@ -153,6 +153,10 @@ xcopy /d /y "$(ProjectDir)font\*.*" "$(OutDir)font\"</Command>
   </ItemGroup>
   <ItemGroup>
     <Font Include="font\OpenSans.ttf" />
+    <Font Include="font\PT_Serif-Web-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="font\OFL.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

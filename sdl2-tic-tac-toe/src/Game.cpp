@@ -2,6 +2,14 @@
 #include "Game.h"
 #include "App.h"
 
+Game::Game()
+{
+	message_rect.x = 50;
+	message_rect.y = 100;
+	message_rect.h = 100;
+	message_rect.w = 500;
+}
+
 void Game::update(SDL_Event *e)
 {
 	if (e->type == SDL_MOUSEBUTTONDOWN && board.is_playable())
@@ -34,7 +42,7 @@ void Game::render()
 	SDL_RenderClear(App::get_renderer());
 
 	board.render();
-	SDL_RenderCopy(App::get_renderer(), App::get_texture(texture), NULL, &App::get_rect());
+	SDL_RenderCopy(App::get_renderer(), App::get_texture(texture), NULL, &message_rect);
 
 	SDL_RenderPresent(App::get_renderer());
 }
