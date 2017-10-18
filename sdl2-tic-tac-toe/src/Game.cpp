@@ -4,10 +4,10 @@
 
 Game::Game()
 {
-	message_rect.x = 50;
-	message_rect.y = 100;
-	message_rect.h = 100;
-	message_rect.w = 500;
+	message_rect.x = App::SCREEN_WIDTH / 3;
+	message_rect.y = App::SCREEN_HEIGHT / 3;
+	message_rect.h = App::SCREEN_HEIGHT / 6;
+	message_rect.w = App::SCREEN_WIDTH / 3;
 }
 
 void Game::update(SDL_Event *e)

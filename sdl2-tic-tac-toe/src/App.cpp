@@ -77,16 +77,16 @@ bool App::init_TTF()
 		return false;
 	}
 
-	font = TTF_OpenFont("font/PT_Serif-Web-Regular.ttf", 1000);
+	font = TTF_OpenFont("font/PT_Serif-Web-Regular.ttf", 52);
 	if (!font)
 	{
 		std::cerr << "TTF_OpenFont error: " << TTF_GetError() << std::endl;
 		return false;
 	}
 
-	draw_surface = TTF_RenderText_Solid(font, "Draw", SDL_Color{ 0, 0, 0 });
-	cross_surface = TTF_RenderText_Solid(font, "X Wins!", SDL_Color{ 0, 0, 0 });
-	circle_surface = TTF_RenderText_Solid(font, "O Wins!", SDL_Color{ 0, 0, 0 });
+	draw_surface = TTF_RenderText_Blended(font, "Draw", SDL_Color{ 0, 0, 0 });
+	cross_surface = TTF_RenderText_Blended(font, "X Wins!", SDL_Color{ 0, 0, 0 });
+	circle_surface = TTF_RenderText_Blended(font, "O Wins!", SDL_Color{ 0, 0, 0 });
 	if (!draw_surface || !cross_surface || !circle_surface)
 	{
 		std::cerr << "TTF_RenderText_Solid error: " << TTF_GetError() << std::endl;
