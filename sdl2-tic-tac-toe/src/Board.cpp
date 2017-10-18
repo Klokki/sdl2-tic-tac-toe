@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 #include "SDL.h"
 #include "Board.h"
 #include "App.h"
