@@ -28,11 +28,6 @@ void Game::update(SDL_Event *e)
 			is_cross = !is_cross;
 		}
 	}
-	else if (board.is_draw())
-	{
-		render_text = true;
-		texture = TEXTURE::TEXTURE_DRAW;
-	}
 	else if (!board.is_playable() && !is_cross)
 	{
 		render_text = true;
@@ -43,6 +38,12 @@ void Game::update(SDL_Event *e)
 		render_text = true;
 		texture = TEXTURE::TEXTURE_CIRCLE;
 	}
+	else if (board.is_draw())
+	{
+		render_text = true;
+		texture = TEXTURE::TEXTURE_DRAW;
+	}
+	
 }
 
 void Game::render()
