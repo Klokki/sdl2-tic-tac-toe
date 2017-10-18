@@ -27,6 +27,8 @@ void Game::update(SDL_Event *e)
 			is_cross = !is_cross;
 		}
 	}
+
+	board.check_win();
 }
 
 void Game::render()

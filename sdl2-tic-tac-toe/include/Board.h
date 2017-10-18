@@ -15,6 +15,7 @@ public:
 
 	void render();
 	void place_piece(int row, int col, PIECE piece);
+	void check_win();
 	
 	inline bool square_empty(int row, int col) const { return p[row][col] == PIECE::PIECE_CLEAR; }
 

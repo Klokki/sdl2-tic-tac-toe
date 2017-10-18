@@ -1,4 +1,5 @@
 #include <cmath>
+#include <iostream>
 #include "SDL.h"
 #include "Board.h"
 #include "App.h"
@@ -32,6 +33,24 @@ void Board::place_piece(int row, int col, PIECE piece)
 	{
 		++filled_squares;
 		p[row][col] = piece;
+	}
+}
+
+void Board::check_win()
+{
+	// diagonals
+	if (p[0][0] == p[1][1] && p[1][1] == p[2][2] && p[0][0] != PIECE::PIECE_CLEAR)
+		std::cout << "Win diagonal left-right" << std::endl;
+	else if (p[0][2] == p[1][1] && p[1][1] == p[2][0] && p[0][2] != PIECE::PIECE_CLEAR)
+		std::cout << "Win diagonal right-left" << std::endl;
+
+	// rows and columns
+	for (int i{ 0 }; i < 3; ++i)
+	{
+		if (p[i][0] == p[i][1] && p[i][1] == p[i][2] && p[i][0] != PIECE::PIECE_CLEAR)
+			std::cout << "Win row " << i + 1 << std::endl;
+		else if (p[0][i] == p[1][i] && p[1][i] == p[2][i] && p[0][i] != PIECE::PIECE_CLEAR)
+			std::cout << "Win col " << i + 1 << std::endl;
 	}
 }
 
