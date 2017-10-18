@@ -4,7 +4,6 @@
 // initialize static members
 SDL_Window* App::s_window{ nullptr };
 SDL_Renderer* App::s_renderer{ nullptr };
-SDL_Texture* App::s_blank{ nullptr };
 SDL_Texture* App::s_draw{ nullptr };
 SDL_Texture* App::s_cross{ nullptr };
 SDL_Texture* App::s_circle{ nullptr };
@@ -31,9 +30,6 @@ SDL_Texture* App::get_texture(TEXTURE texture)
 {
 	switch (texture)
 	{
-	case(TEXTURE::TEXTURE_BLANK):
-		return s_blank;
-		break;
 	case(TEXTURE::TEXTURE_DRAW):
 		return s_draw;
 		break;
@@ -44,7 +40,6 @@ SDL_Texture* App::get_texture(TEXTURE texture)
 		return s_circle;
 		break;
 	default:
-		return s_blank;
 		break;
 	}
 }
@@ -89,17 +84,15 @@ bool App::init_TTF()
 		return false;
 	}
 
-	blank_surface = TTF_RenderText_Solid(font, " ", SDL_Color{ 0, 0, 0 });
 	draw_surface = TTF_RenderText_Solid(font, "Draw", SDL_Color{ 0, 0, 0 });
 	cross_surface = TTF_RenderText_Solid(font, "X Wins!", SDL_Color{ 0, 0, 0 });
 	circle_surface = TTF_RenderText_Solid(font, "O Wins!", SDL_Color{ 0, 0, 0 });
-	if (!blank_surface || !draw_surface || !cross_surface || !circle_surface)
+	if (!draw_surface || !cross_surface || !circle_surface)
 	{
 		std::cerr << "TTF_RenderText_Solid error: " << TTF_GetError() << std::endl;
 		return false;
 	}
 
-	s_blank = SDL_CreateTextureFromSurface(App::get_renderer(), blank_surface);
 	s_draw = SDL_CreateTextureFromSurface(App::get_renderer(), draw_surface);
 	s_cross = SDL_CreateTextureFromSurface(App::get_renderer(), cross_surface);
 	s_circle = SDL_CreateTextureFromSurface(App::get_renderer(), circle_surface);
@@ -137,12 +130,6 @@ void App::close_TTF()
 
 	// TODO: seriously fix this
 	// this is legit disgusting
-	if (blank_surface != nullptr)
-	{
-		SDL_FreeSurface(blank_surface);
-		draw_surface = nullptr;
-	}
-
 	if (draw_surface != nullptr)
 	{
 		SDL_FreeSurface(draw_surface);
@@ -159,12 +146,6 @@ void App::close_TTF()
 	{
 		SDL_FreeSurface(circle_surface);
 		circle_surface = nullptr;
-	}
-
-	if (s_blank != nullptr)
-	{
-		SDL_DestroyTexture(s_blank);
-		s_blank = nullptr;
 	}
 
 	if (s_draw != nullptr)

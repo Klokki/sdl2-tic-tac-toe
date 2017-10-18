@@ -29,11 +29,21 @@ void Game::update(SDL_Event *e)
 		}
 	}
 	else if (board.is_draw())
+	{
+		render_text = true;
 		texture = TEXTURE::TEXTURE_DRAW;
+	}
 	else if (!board.is_playable() && !is_cross)
+	{
+		render_text = true;
 		texture = TEXTURE::TEXTURE_CROSS;
+	}
 	else if (!board.is_playable())
+	{
+		render_text = true;
 		texture = TEXTURE::TEXTURE_CIRCLE;
+	}
+		
 }
 
 void Game::render()
@@ -42,7 +52,9 @@ void Game::render()
 	SDL_RenderClear(App::get_renderer());
 
 	board.render();
-	SDL_RenderCopy(App::get_renderer(), App::get_texture(texture), NULL, &message_rect);
+
+	if(render_text)
+		SDL_RenderCopy(App::get_renderer(), App::get_texture(texture), NULL, &message_rect);
 
 	SDL_RenderPresent(App::get_renderer());
 }

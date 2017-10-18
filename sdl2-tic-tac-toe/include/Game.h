@@ -15,6 +15,7 @@ public:
 private:
 	Board board;
 	SDL_Rect message_rect;
-	TEXTURE texture{ TEXTURE::TEXTURE_BLANK };
+	TEXTURE texture;
 	bool is_cross{ true };
+	bool render_text{ false };
 };

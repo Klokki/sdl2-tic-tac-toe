@@ -37,11 +37,9 @@ private:
 	TTF_Font* font;
 	// TODO: replace this mess with some other solution
 	// because this is just dumb and uses almost 100 MB of memory
-	SDL_Surface* blank_surface{ nullptr };
 	SDL_Surface* draw_surface{ nullptr };
 	SDL_Surface* cross_surface{ nullptr };
 	SDL_Surface* circle_surface{ nullptr };
-	static SDL_Texture* s_blank;
 	static SDL_Texture* s_draw;
 	static SDL_Texture* s_cross;
 	static SDL_Texture* s_circle;
