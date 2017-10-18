@@ -11,7 +11,6 @@ public:
 	};
 
 	Board();
-	~Board();
 
 	void render();
 	void place_piece(int row, int col, PIECE piece);

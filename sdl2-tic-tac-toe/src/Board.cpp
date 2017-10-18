@@ -16,10 +16,6 @@ Board::Board() :
 	}
 }
 
-Board::~Board()
-{
-}
-
 void Board::render()
 {
 	this->render_grid();
