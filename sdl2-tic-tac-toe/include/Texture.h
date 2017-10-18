@@ -1,0 +1,9 @@
+#pragma once
+
+enum class TEXTURE
+{
+	TEXTURE_BLANK,
+	TEXTURE_DRAW,
+	TEXTURE_CROSS,
+	TEXTURE_CIRCLE
+};

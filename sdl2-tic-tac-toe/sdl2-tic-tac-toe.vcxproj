@@ -80,15 +80,16 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\include;C:\Users\samik\Documents\Visual Studio 2017\Projects\sdl2-tic-tac-toe\sdl2-tic-tac-toe\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2_ttf-2.0.14\include;C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\include;C:\Users\samik\Documents\Visual Studio 2017\Projects\sdl2-tic-tac-toe\sdl2-tic-tac-toe\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2_ttf-2.0.14\lib\x86;C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(ProjectDir)bin\*.*" "$(OutDir)"</Command>
+      <Command>xcopy /d /y "$(ProjectDir)bin\*.*" "$(OutDir)"
+xcopy /d /y "$(ProjectDir)font\*.*" "$(OutDir)font\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -105,17 +106,18 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\include;C:\Users\samik\Documents\Visual Studio 2017\Projects\sdl2-tic-tac-toe\sdl2-tic-tac-toe\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2_ttf-2.0.14\include;C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\include;C:\Users\samik\Documents\Visual Studio 2017\Projects\sdl2-tic-tac-toe\sdl2-tic-tac-toe\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\samik\Documents\vs_dev_lib\SDL2_ttf-2.0.14\lib\x86;C:\Users\samik\Documents\vs_dev_lib\SDL2-2.0.6\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(ProjectDir)bin\*.*" "$(OutDir)"</Command>
+      <Command>xcopy /d /y "$(ProjectDir)bin\*.*" "$(OutDir)"
+xcopy /d /y "$(ProjectDir)font\*.*" "$(OutDir)font\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,12 +140,19 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\libfreetype-6.dll" />
     <None Include="bin\SDL2.dll" />
+    <None Include="bin\SDL2_ttf.dll" />
+    <None Include="bin\zlib1.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\App.h" />
+    <ClInclude Include="include\Texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="font\OpenSans.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

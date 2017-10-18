@@ -1,13 +1,6 @@
+#include <iostream>
 #include "Game.h"
 #include "App.h"
-
-Game::Game()
-{
-}
-
-Game::~Game()
-{
-}
 
 void Game::update(SDL_Event *e)
 {
@@ -19,7 +12,7 @@ void Game::update(SDL_Event *e)
 
 		if (board.square_empty(row, col))
 		{
-			if(is_cross)
+			if (is_cross)
 				board.place_piece(row, col, Board::PIECE::PIECE_CROSS);
 			else
 				board.place_piece(row, col, Board::PIECE::PIECE_CIRCLE);
@@ -27,6 +20,12 @@ void Game::update(SDL_Event *e)
 			is_cross = !is_cross;
 		}
 	}
+	else if (board.is_draw())
+		texture = TEXTURE::TEXTURE_DRAW;
+	else if (!board.is_playable() && !is_cross)
+		texture = TEXTURE::TEXTURE_CROSS;
+	else if (!board.is_playable())
+		texture = TEXTURE::TEXTURE_CIRCLE;
 }
 
 void Game::render()
@@ -35,6 +34,7 @@ void Game::render()
 	SDL_RenderClear(App::get_renderer());
 
 	board.render();
+	SDL_RenderCopy(App::get_renderer(), App::get_texture(texture), NULL, &App::get_rect());
 
 	SDL_RenderPresent(App::get_renderer());
 }

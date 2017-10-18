@@ -30,6 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\SDL2.dll" />
+    <None Include="bin\libfreetype-6.dll" />
+    <None Include="bin\SDL2_ttf.dll" />
+    <None Include="bin\zlib1.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\App.h">
@@ -41,5 +44,11 @@
     <ClInclude Include="include\Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="font\OpenSans.ttf" />
   </ItemGroup>
 </Project>
