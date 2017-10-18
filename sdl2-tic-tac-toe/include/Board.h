@@ -16,8 +16,8 @@ public:
 	void place_piece(int row, int col, PIECE piece);
 
 	// returns true if game has NOT been won AND all squares have not been filled
-	inline bool is_playable() { return !is_won() && !is_draw(); }
-	inline bool is_draw() { return filled_squares == 9; }
+	inline bool is_playable()	{ return !is_won() && !is_draw(); }
+	inline bool is_draw() const	{ return filled_squares == 9; }
 	
 	inline bool square_empty(int row, int col) const { return p[row][col] == PIECE::PIECE_CLEAR; }
 
