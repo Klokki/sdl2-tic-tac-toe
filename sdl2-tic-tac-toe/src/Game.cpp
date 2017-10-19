@@ -12,7 +12,7 @@ Game::Game()
 
 void Game::update(SDL_Event *e)
 {
-	if (e->type == SDL_MOUSEBUTTONDOWN && board.is_playable())
+	if (e->type == SDL_MOUSEBUTTONDOWN && !board.is_won() && !board.is_draw())
 	{
 		int x, y;
 		SDL_GetMouseState(&x, &y);
@@ -28,17 +28,17 @@ void Game::update(SDL_Event *e)
 			is_cross = !is_cross;
 		}
 	}
-	else if (!board.is_playable() && !is_cross)
+	else if (board.is_won() && !is_cross && !board.is_draw())
 	{
 		render_text = true;
 		texture = TEXTURE::TEXTURE_CROSS;
 	}
-	else if (!board.is_playable())
+	else if (board.is_won() && is_cross && !board.is_draw())
 	{
 		render_text = true;
 		texture = TEXTURE::TEXTURE_CIRCLE;
 	}
-	else if (board.is_draw())
+	else if (board.is_draw() && !board.is_won())
 	{
 		render_text = true;
 		texture = TEXTURE::TEXTURE_DRAW;
