@@ -43,6 +43,8 @@ void Game::update(SDL_Event *e)
 		render_text = true;
 		texture = TEXTURE::TEXTURE_DRAW;
 	}
+	else
+		render_text = false;
 	
 }
 

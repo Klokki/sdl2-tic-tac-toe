@@ -5,15 +5,9 @@
 
 Board::Board() :
 	square_height(App::SCREEN_HEIGHT / 3),
-	square_width(App::SCREEN_WIDTH / 3),
-	filled_squares(0)
+	square_width(App::SCREEN_WIDTH / 3)
 {
-	// set all grid squares to empty
-	for (int i{ 0 }; i < 3; ++i)
-	{
-		for (int j{ 0 }; j < 3; ++j)
-			p[i][j] = PIECE::PIECE_CLEAR;
-	}
+	this->reset();
 }
 
 void Board::render()
@@ -28,6 +22,18 @@ void Board::place_piece(int row, int col, PIECE piece)
 	{
 		++filled_squares;
 		p[row][col] = piece;
+	}
+}
+
+void Board::reset()
+{
+	filled_squares = 0;
+
+	// set all grid squares to empty
+	for (int i{ 0 }; i < 3; ++i)
+	{
+		for (int j{ 0 }; j < 3; ++j)
+			p[i][j] = PIECE::PIECE_CLEAR;
 	}
 }
 

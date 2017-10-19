@@ -169,8 +169,6 @@ void App::close_TTF()
 
 void App::run()
 {
-	Game game;
-
 	// game loop
 	while (running)
 	{
@@ -194,6 +192,9 @@ void App::handle_quit()
 			{
 			case(SDLK_q):
 				running = false;
+				break;
+			case(SDLK_e):
+				game.reset();
 				break;
 			default:
 				break;

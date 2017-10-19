@@ -45,4 +45,5 @@ private:
 	static SDL_Texture* s_circle;
 
 	SDL_Event e;
+	Game game;
 };

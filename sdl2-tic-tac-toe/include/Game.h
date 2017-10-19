@@ -11,6 +11,7 @@ public:
 
 	void update(SDL_Event *e);
 	void render();
+	inline void reset() { board.reset(); }
 
 private:
 	Board board;

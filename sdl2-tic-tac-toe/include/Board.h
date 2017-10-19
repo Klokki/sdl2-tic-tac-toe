@@ -14,6 +14,7 @@ public:
 
 	void render();
 	void place_piece(int row, int col, PIECE piece);
+	void reset();
 
 	inline bool is_draw(){ return filled_squares == 9 && !is_won(); }
 	bool is_won();
