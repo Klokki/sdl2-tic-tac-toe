@@ -21,9 +21,6 @@ App::~App()
 {
 	this->close_SDL();
 	this->close_TTF();
-
-	SDL_Quit();
-	TTF_Quit();
 }
 
 SDL_Texture* App::get_texture(TEXTURE texture)
@@ -118,6 +115,8 @@ void App::close_SDL()
 		SDL_DestroyWindow(s_window);
 		s_window = nullptr;
 	}
+
+	SDL_Quit();
 }
 
 void App::close_TTF()
@@ -165,6 +164,8 @@ void App::close_TTF()
 		SDL_DestroyTexture(s_circle);
 		s_circle = nullptr;
 	}
+
+	TTF_Quit();
 }
 
 void App::run()

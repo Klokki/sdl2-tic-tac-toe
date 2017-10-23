@@ -45,7 +45,6 @@ void Game::update(SDL_Event *e)
 	}
 	else
 		render_text = false;
-	
 }
 
 void Game::render()
